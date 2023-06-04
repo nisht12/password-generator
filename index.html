@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>Random pw</title>
+<style>
+	body{background-color: #39ff03;
+	background-image: linear-gradient(315deg, #ea001f 0%, #d7e416 74%);
+	}
+	.container{
+			margin-top:150px;
+			border:1px solid black;
+			width:380px;
+			height:400px; 
+			border-radius:10px;
+			background-color:#EEC0C6;
+			font-family:calibri;		
+
+					}
+			
+	.submit{
+		padding:20px;
+		font-family:sans-serif;
+		font-size:20px;
+	}
+
+</style>
+</head>
+<body>
+<script>
+
+		
+
+
+
+
+
+
+
+
+function gen()
+{
+
+
+
+
+	
+	event.preventDefault()	
+	let s6=document.getElementById("s6")
+	let s8=document.getElementById("s8")	
+	let s9=document.getElementById("s9")
+	let uc=document.getElementById("uc")
+	let di=document.getElementById("di")
+	let msg=document.getElementById("msg")
+
+	let si=0;
+	if(s6.checked)	si=6;
+	else if(s8.checked)	si=8;
+	else	si=9;
+
+	let text="abcdefghijklmnopqrstuvwxyz";
+
+	if (di.checked)
+		text=text+"1234567890";
+	if (uc.checked)
+
+	text=text+text.toUpperCase();
+
+	let pw="";
+	for(let i=1;i<=si;i++)
+	{
+		let r=parseInt(Math.random()*text.length)
+		pw=pw+text[r];
+	}
+	msg.innerHTML=pw;
+}
+</script>
+
+	
+	
+
+
+
+<center>
+	<div class="container">
+		<h1>PASSWORD GENERATOR</h1>
+		<form onsubmit="gen()">
+	<input type="radio" name="al" value="s6" id="s6".checked />6
+	<input type="radio" name="al" value="s8" id="s8"/>8
+	<input type="radio" name="al" value="s9" id="s9"/>9
+	<br><br>
+	<input type="checkbox" name="le" value="uc" id="uc"/>UPPERCASE	
+	<input type="checkbox" name="le" value="di" id="di"/>DIGITS
+
+	<input type="submit" value="GENERATE PASSWORD" class="submit"/>
+		</form>
+	<h1 id="msg"></h1>
+		</div>
+</center>
+ 
+</body>
+
+</html>
